@@ -1,0 +1,24 @@
+{
+  "mode": "PUBLIC",
+  "storage": { "class": "file", "conf": {}},
+  "fields": [
+    {
+      "name": "dir",
+      "format": [
+        { "type": "const", "props": {"value": "src/test/resources/fs/data"}}
+      ]
+    },
+    {
+      "name": "file",
+      "format": [
+        { "type": "attr", "props": {"attr": "k"}}
+      ]
+    },
+    {
+      "name": "value",
+      "format": [
+        {"type": "attr", "props":  {"attr":  "v"}}
+      ]
+    }
+  ]
+}

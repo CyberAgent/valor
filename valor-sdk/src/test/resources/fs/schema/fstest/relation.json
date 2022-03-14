@@ -1,0 +1,6 @@
+{
+  "attributes": [
+    {"name": "k", "isKey": true, "type": "string"},
+    {"name": "v", "isKey": false, "type": "string"}
+  ]
+}

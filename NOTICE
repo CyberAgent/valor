@@ -1,0 +1,19 @@
+
+--
+This product includes portions of the Presto (https://github.com/prestodb/presto), specifically
+'valor-spi/src/main/java/jp/co/cyberagent/valor/spi/ThreadContextClassLoader.java'
+
+Licensed under the Apache License, Version 2.0
+
+--
+This product includes portions of the Hadoop (https://github.com/apache/hadoop), specifically
+'valor-spi/src/main/java/jp/co/cyberagent/valor/spi/util/WritableUtils.java'
+
+Licensed under the Apache License, Version 2.0
+
+--
+This product includes portions of the HBase (https://github.com/apache/hbase), specifically
+'valor-spi/src/main/java/jp/co/cyberagent/valor/spi/util/Bytes.java'
+
+Licensed under the Apache License, Version 2.0
+

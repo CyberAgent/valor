@@ -1,0 +1,14 @@
+#!/bin/sh
+VALOR_HOME=`dirname $0`/../
+
+if [ -f ${VALOR_HOME}/conf/env.sh ] ; then
+  source ${VALOR_HOME}/conf/env.sh
+fi
+
+CLASSPATH=${CLASSPATH}:${VALOR_HOME}/conf
+for jar in `ls ${VALOR_HOME}/lib/*jar`
+do
+  CLASSPATH=${CLASSPATH}:${jar}
+done
+
+java ${JAVA_OPTS} -cp ${CLASSPATH} jp.co.cyberagent.valor.cli.ValorTool "$@"

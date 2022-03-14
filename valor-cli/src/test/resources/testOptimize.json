@@ -1,0 +1,43 @@
+{
+  "relations": [
+    {
+      "relationId": "rel",
+      "attributes": [
+        { "name": "k1", "isKey": true, "type": "string"},
+        { "name": "k2", "isKey": true, "type": "string"},
+        { "name": "v1", "isKey": false, "type": "int"},
+        { "name": "v2", "isKey": false, "type": "int"}
+      ]
+    }
+  ],
+  "queries": {
+    "Q1": {
+      "select": ["k1", "k2", "v1", "v2"],
+      "from": "rel",
+      "where": {
+        "type": "and",
+        "queries": [
+          { "type": "equal", "key": "k1", "value": "si1"},
+          { "type": "lessthan", "key": "k2", "value": "si2"}
+        ]
+      }
+    },
+    "Q2":{
+      "select": ["k1", "k2", "v1", "v2"],
+      "from": "rel",
+      "where": {"type": "equal", "key": "k2", "value": "si2"}
+    }
+  },
+  "context": {
+    "queryWeight": {"Q1": 10, "Q2": 100},
+    "dataStats": {
+      "rel": {
+        "cardinality": {"k1": 100, "k2": 1000, "v1": 1000, "v2":1000},
+        "size": {"k1": 10, "k2": 10, "v1": 10, "v2":10}
+      }
+    },
+    "storageConf": {
+      "hbase.zookeeper.quorum": "localhost"
+    }
+  }
+}

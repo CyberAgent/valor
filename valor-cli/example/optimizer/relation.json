@@ -1,0 +1,45 @@
+{
+  "relationId": "r_page_view",
+  "attributes": [
+    {
+      "isKey": true,
+      "name": "page_view_indicator",
+      "type": "string"
+    },
+    {
+      "isKey": true,
+      "name": "page_view_site_id",
+      "type": "string"
+    },
+    {
+      "isKey": false,
+      "name": "page_view_date",
+      "type": "string"
+    },
+    {
+      "isKey": true,
+      "name": "page_view_value",
+      "type": "string"
+    },
+    {
+      "isKey": false,
+      "name": "page_view_category",
+      "type": "string"
+    },
+    {
+      "isKey": false,
+      "name": "page_view_type",
+      "type": "string"
+    },
+    {
+      "isKey": false,
+      "name": "page_view_page_type",
+      "type": "string"
+    },
+    {
+      "isKey": false,
+      "name": "page_view_name",
+      "type": "string"
+    }
+  ]
+}

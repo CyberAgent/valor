@@ -1,0 +1,34 @@
+{
+  "attributes": [
+    {
+      "name": "k",
+      "isKey": true,
+      "type": "string"
+    },
+    {
+      "name": "nk",
+      "isKey": true,
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "a",
+      "isKey": false,
+      "type": {
+        "name": "array",
+        "element": "string"
+      }
+    },
+    {
+      "name": "v",
+      "isKey": false,
+      "type": {
+        "name": "map",
+        "key": "string",
+        "value": {
+          "name": "string"
+        }
+      }
+    }
+  ]
+}

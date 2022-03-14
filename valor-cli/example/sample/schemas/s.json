@@ -1,0 +1,68 @@
+{
+  "isPrimary": true,
+  "storage": {
+    "class": "hbase",
+    "conf": {
+      "hbase.zookeeper.quorum": "localhost"
+    }
+  },
+  "fields": [
+    {
+      "name": "table",
+      "format": [
+        {
+          "type": "const",
+          "props": {
+            "value": "testtable"
+          }
+        }
+      ]
+    },
+    {
+      "name": "rowkey",
+      "format": [
+        {
+          "type": "attr",
+          "props": {
+            "attr": "k"
+          }
+        }
+      ]
+    },
+    {
+      "name": "family",
+      "format": [
+        {
+          "type": "const",
+          "props": {
+            "value": "t"
+          }
+        }
+      ]
+    },
+    {
+      "name": "qualifier",
+      "format": [
+        {
+          "type": "const",
+          "props": {
+            "value": "q"
+          }
+        }
+      ]
+    },
+    {
+      "name": "value",
+      "format": [
+        {
+          "type": "attr",
+          "props": {
+            "attr": "v"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+

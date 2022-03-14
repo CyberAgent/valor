@@ -1,0 +1,8 @@
+*target/
+*.jfr
+*.log
+
+*.iml
+.idea
+site/.docusaurus/
+site/build/

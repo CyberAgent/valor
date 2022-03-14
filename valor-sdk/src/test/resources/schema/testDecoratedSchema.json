@@ -1,0 +1,52 @@
+{
+  "isPrimary": true,
+  "mode": "PUBLIC",
+  "storage": {
+    "class": "jp.co.cyberagent.valor.spi.util.MockStorage",
+    "conf": {
+    }
+  },
+  "fields": [
+    {
+      "name": "key",
+      "format": [
+        {
+          "type": "size",
+          "props": {},
+          "decoratee": {
+            "type": "const",
+            "props": {
+              "value": "TURBd01EQXc=",
+              "encode": "base64"
+            }
+          }
+        },
+        {
+          "type": "size",
+          "props": {},
+          "decoratee": {
+            "type": "attr",
+            "props": {
+              "attr": "k"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "value",
+      "format": [
+        {
+          "type": "attrValue",
+          "props": {
+            "excludes": [
+              "k",
+              "v"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "conf": {}
+}

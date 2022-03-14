@@ -1,0 +1,7 @@
+{
+  "valor.schemarepository.class": "http",
+  "valor.plugins.dir": "./plugins",
+  "valor.http.repo.basepath": "https://github.com/api/v3/repos/valor/valor-cli/example",
+  "valor.http.repo.headers.Authorization": "token ${GHE_TOKEN}",
+  "valor.http.repo.headers.Accept": "application/vnd.github.VERSION.raw"
+}
