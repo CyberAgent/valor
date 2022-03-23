@@ -4,7 +4,7 @@
   <parent>
     <groupId>jp.co.cyberagent.valor</groupId>
     <artifactId>valor</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
   </parent>
   <artifactId>valor-hbase</artifactId>
 
