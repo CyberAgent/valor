@@ -17,6 +17,18 @@
     <log4j.version>2.17.1</log4j.version>
   </properties>
 
+  <developers>
+    <developer>
+      <name>Noriyuki Watanabe</name>
+      <email>watanabe_noriyuki@cyberagent.co.jp</email>
+      <organization>CyberAgent, Inc.</organization>
+      <organizationUrl>https://www.cyberagent.co.jp/en/</organizationUrl>
+    </developer>
+  </developers>
+
+  <description>Valor is a data integration tool based on binary schema management, which provides unified access to various kinds of data storages.</description>
+  <url>https://github.com/CyberAgent/valor</url>
+
   <profiles>
     <profile>
       <activation>
@@ -48,6 +60,21 @@
         <surefire.forkCount>0</surefire.forkCount>
       </properties>
     </profile>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
   <repositories>
@@ -58,6 +85,24 @@
     </repository>
     -->
   </repositories>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -393,8 +438,28 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5</version>
+          <configuration>
+            <goals>deploy</goals>
+            <pushChanges>false</pushChanges>
+            <localCheckout>true</localCheckout>
+            <scmCommentPrefix>release ${project.version} by maven-release-plugin</scmCommentPrefix>
+            <tagNameFormat>${project.version}</tagNameFormat>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>3.3.2</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
           <configuration>
             <charset>UTF-8</charset>
             <encoding>UTF-8</encoding>
@@ -405,15 +470,16 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5</version>
-          <configuration>
-            <goals>deploy</goals>
-            <pushChanges>false</pushChanges>
-            <localCheckout>true</localCheckout>
-            <scmCommentPrefix>release ${project.version} by maven-release-plugin</scmCommentPrefix>
-            <tagNameFormat>${project.version}</tagNameFormat>
-          </configuration>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.2.0</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -431,9 +497,15 @@
           <version>2.2</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.7</version>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.12</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -488,6 +560,20 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>3.0.0-M3</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>3.0.1</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -603,13 +689,11 @@
     <module>valor-webapi</module>
   </modules>
 
-	<!--
   <scm>
-		<url>scm:git:https://github.com/CyberAgent/valor.git</url>
-		<connection>scm:git:https://github.com/CyberAgent/valor.git</connection>
-		<developerConnection>scm:git:https://github.com/CyberAgent/valor.git</developerConnection>
+    <url>scm:git:https://github.com/CyberAgent/valor.git</url>
+    <connection>scm:git:https://github.com/CyberAgent/valor.git</connection>
+    <developerConnection>scm:git:https://github.com/CyberAgent/valor.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-	-->
 
 </project>
